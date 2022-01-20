@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev   #Ñ¡devÖĞµÄÅäÖÃ
+    active: dev   #é€‰devä¸­çš„é…ç½®
   application:
     name: microservice-springcloud-product-config
 ---

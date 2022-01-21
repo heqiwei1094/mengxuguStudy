@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev   #选dev中的配置
+  application:
+    name: microservice-springcloud-product-config
+---
+server:
+  port: 8080
+spring:
+  profiles: dev
+  application:
+    name: microservice-springcloud-product-config-dev
+ 
+---
+server:
+  port: 8000
+spring:
+  profiles: prod
+  application:
+    name: microservice-springcloud-product-config-prod

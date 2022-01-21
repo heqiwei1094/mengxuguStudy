@@ -8,7 +8,7 @@ server:
 spring:
   profiles: dev
   application:
-  name: microservice-springcloud-product-config-dev
+    name: microservice-springcloud-product-config-dev
  
 ---
 server:
@@ -16,4 +16,4 @@ server:
 spring:
   profiles: prod
   application:
-  name: microservice-springcloud-product-config-prod
+    name: microservice-springcloud-product-config-prod

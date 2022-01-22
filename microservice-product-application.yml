@@ -1,0 +1,106 @@
+
+spring:
+  profiles:
+    active: dev   #选dev中的配置
+
+---
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+
+spring:
+  profiles: dev
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://8.134.51.204:3306/springcould_product_db01?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+      username: root
+      password: root
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  application:
+    name: microservice-springcloud-product-provider
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/*Mapper.xml  # mapper映射文件
+  global-config:
+    db-config:
+      table-prefix: t_
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka, http://eureka6002.com:6002/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+
+---
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+
+spring:
+  profiles: prod
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://8.134.51.204:3306/springcould_product_db02?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+      username: root
+      password: root
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  application:
+    name: microservice-springcloud-product-provider
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/*Mapper.xml  # mapper映射文件
+  global-config:
+    db-config:
+      table-prefix: t_
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka, http://eureka6002.com:6002/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true

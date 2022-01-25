@@ -56,6 +56,10 @@ eureka:
     prefer-ip-address: true
 
 
+tmp:
+  name: fff
+  title: 3232
+
 ---
 server:
   port: 8080

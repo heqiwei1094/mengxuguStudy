@@ -57,8 +57,8 @@ eureka:
 
 
 tmp:
-  name: fff
-  title: 3232
+  name: fff-dev
+  title: 3232-开发
 
 ---
 server:
